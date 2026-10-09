@@ -1,0 +1,55 @@
+### Variables
+
+set $mod Mod4
+
+### Output
+
+output * bg #000000 solid_color
+
+### Disable screen blanking
+
+exec swayidle -w timeout 0 ''
+
+### Keyboard
+
+input type:keyboard {
+    xkb_layout fr
+}
+
+### No mouse cursor after inactivity
+
+seat seat0 hide_cursor 5000
+
+### Floating disabled
+
+floating_modifier none
+
+### No title bars
+
+default_border pixel 0
+default_floating_border pixel 0
+
+### Launch camera wall
+
+exec ~/.local/bin/camera-wall.sh
+
+for_window [title="CAM1"] floating enable, resize set 960 540, move position 0 0
+for_window [title="CAM2"] floating enable, resize set 960 540, move position 960 0
+for_window [title="CAM3"] floating enable, resize set 960 540, move position 0 540
+for_window [title="CAM4"] floating enable, resize set 960 540, move position 960 540
+
+### Fullscreen disabled
+
+workspace_layout default
+
+### Emergency terminal
+
+bindsym $mod+Return exec foot
+
+### Reload config
+
+bindsym $mod+Shift+r reload
+
+### Exit sway
+
+bindsym $mod+Shift+e exit
